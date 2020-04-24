@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>DPG</title>
+</head>
+<body>
+    <div class="app">
+        <h3>Uzivatele kteri maji email na domene .biz </h3>
+        <ul class="users">
+            <li v-for="(user, index) in users" :key="index">
+               {{ user.name }} -  {{ user.email }}
+            </li>
+        </ul>
+
+        <h3>Zalozit usera</h3>
+        <input type="text" v-model="name">
+        <button v-on:click="register">Registrovat se</button>
+        <div v-if="new_id">
+            ID nově vytvoreneho uzivatele je: {{ new_id }}
+        </div>
+        <div v-else>        
+        </div>
+
+
+        <h3>Smazat uzivatele ze severni polokoule</h3>
+        <button v-on:click="deleteFromNorth">Smazat</button>
+         <div v-if="deleted">
+            Smazano {{ count_deleted }} uzivatelu
+        </div>
+        <div v-else>      
+        </div>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="sources/js/app.js"></script>	
+</body>
+</html>
